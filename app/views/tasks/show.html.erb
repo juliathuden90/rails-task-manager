@@ -1,0 +1,28 @@
+<div class="task-title">
+  <h1><%= @task.title %></h1>
+  <button type="button" class="btn btn-light">
+    <%= link_to "✏️ Edit this task", edit_task_path(@task) %>
+  </button>
+</div>
+
+<div class="card-grey card">
+  <div class="card-body">
+    <%= @task.details %>
+  </div>
+</div>
+
+<% if @task.completed == false %>
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  <label class="form-check-label" for="flexCheckDefault">
+    This task is not completed
+  </label>
+<% else %>
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+  <label class="form-check-label" for="flexCheckChecked">
+      This task is completed
+  </label>
+<% end %>
+
+<hr/>
+
+<p><%= link_to "↩️ Back to list", tasks_path %></p>
